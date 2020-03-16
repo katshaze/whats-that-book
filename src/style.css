@@ -1,15 +1,91 @@
 * {
   box-sizing: border-box;
+}
+
+body,
+button {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.book,
+.writer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  width: 50%;
+}
+
+h2 {
+  margin: 0 auto;
+  padding: 16px;
+  text-align: center;
+}
+
+.book,
+.button--writer {
+  background-color: #2b2a2c;
   color: #e7dbdb;
 }
 
-body {
-  background-color: #2b2a2c;
-  margin: 0;
+.writer,
+.button--book {
+  background-color: #e7dbdb;
+  color: #2b2a2c;
 }
 
-h1 {
-    margin: 0 auto;
-    padding: 8px;
-    text-align: center;
+.searchBox form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 16px;
+  width: 80%;
+}
+
+.searchBox form {
+  padding: 16px;
+}
+
+.searchBox form input {
+  display: block;
+  margin: 0 auto;
+  padding: 4px;
+  width: 80%;
+}
+
+button {
+  border-radius: 2px;
+  border-width: 2px;
+  cursor: pointer; 
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 32px;
+  padding: 4px;
+  width: 50%;
+}
+
+input {
+  font-size: 14px;
+  text-align: center;
+}
+
+.button--book {
+  background-color: #414042;
+  border-color: #e7dbdb;
+  color: #e7dbdb;
+}
+
+.button--writer {
+  background-color: #e4d3d3;
+  border-color: #2b2a2c;
+  color: #2b2a2c;
 }
