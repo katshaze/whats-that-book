@@ -6,7 +6,7 @@ const Results = ({ searchResults }) => {
     };
     
   return (
-    <div className="bookResults">
+    <div className="results">
       {searchResults[0] === 'initial render' ? (
           <h3></h3>
       ) : searchResults.length === 0 ? (

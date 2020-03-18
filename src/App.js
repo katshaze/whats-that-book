@@ -1,13 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Book from "./BookSearch";
-import Writer from "./WriterSearch";
+import Search from "./Search";
 
 const App = () => {
   return (
-    <div className="container">
-      <Book />
-      <Writer />
+    <div className="app">
+      <Search />
     </div>
   );
 };
