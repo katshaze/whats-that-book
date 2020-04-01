@@ -3,14 +3,13 @@ import axios from "axios";
 import Results from "./Results";
 
 const Search = () => {
-  const [searchResults, setSearchResults] = useState(["initial render"]);
+  const [searchResults, setSearchResults] = useState([]);
   const [book, updateBook] = useState("Kafka on the Shore");
 
   async function requestSearch() {
     let response = await axios.post(`http://localhost:3000/book`, {
       book
     });
-    console.log(response.data[0].work);
     response = response.data[0].work;
     setSearchResults(response || []);
   }

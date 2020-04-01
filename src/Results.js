@@ -1,18 +1,31 @@
 import React from "react";
+import Book from "./Book";
 
 const Results = ({ searchResults }) => {
-    if (searchResults) {
-        console.log(searchResults.length);
-    };
-    
+  if (searchResults) {
+    console.log(searchResults.length);
+    console.log(searchResults);
+
+    if (searchResults[0]) {
+      console.log(searchResults[0].best_book[0].image_url[0]);
+      console.log(searchResults[0].best_book[0].id[0]._);
+    }
+  }
+
   return (
     <div className="results">
-      {searchResults[0] === 'initial render' ? (
-          <h3></h3>
-      ) : searchResults.length === 0 ? (
+      {searchResults.length === 0 ? (
         <h3>No books found that match your search, soz</h3>
       ) : (
-        <h3>We got some hits! Let me just figure out how to display them...</h3>
+        searchResults.map(result => (
+          <Book
+            key={result.best_book[0].id[0]._}
+            bookId={result.best_book[0].id[0]._}
+            name={result.best_book[0].title[0]}
+            author={result.best_book[0].author[0].name[0]}
+            image={result.best_book[0].image_url[0]}
+          />
+        ))
       )}
     </div>
   );
