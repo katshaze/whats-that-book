@@ -8,6 +8,7 @@ const parseString = require("xml2js").parseString;
 // });
 
 let book;
+let bookId;
 // build api URL with user's book input
 
 // const getBook = async (url) => {
@@ -25,13 +26,33 @@ router.post("/", (req, res) => {
 
   const requestUrl = `https://www.goodreads.com/search.xml?key=RBr5ZI7tQPC7cDN9K2oa3A&q=${book}`;
 
-  // add in error route for if no book in request
-
   axios
     .get(requestUrl)
     .then(response => {
       parseString(response.data, function(err, result) {
         result = result.GoodreadsResponse.search[0].results;
+        res.send(result);
+      });
+    })
+    .catch(error => {
+      console.log(error);
+      res.send(error);
+    });
+});
+
+router.post("/details", (req, res) => {
+  console.log(req.body);
+  bookId = req.body.bookId;
+  console.log(`Got the book to search for, id is ${bookId}`);
+
+  const requestUrl = `https://www.goodreads.com/book/show.xml?key=RBr5ZI7tQPC7cDN9K2oa3A&id=${bookId}`;
+
+  axios
+    .get(requestUrl)
+    .then(response => {
+      parseString(response.data, function(err, result) {
+        result = result.GoodreadsResponse.book[0];
+        console.log(result);
         res.send(result);
       });
     })
