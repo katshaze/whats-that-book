@@ -16,7 +16,8 @@ button {
 }
 
 .search,
-.results {
+.results,
+.details {
   height: 50vh;
   text-align: center;
 }
@@ -28,7 +29,8 @@ button {
   text-align: center;
 }
 
-.results {
+.results,
+.details {
   display: block;
   overflow: scroll;
 }
@@ -45,7 +47,8 @@ h2 {
 
 .results,
 .button--search,
-.book {
+.book,
+.details {
   background-color: #e7dbdb;
   color: #2b2a2c;
 }
@@ -99,7 +102,8 @@ input {
   margin: 25px auto;
 }
 
-.book img {
+.book img,
+.details img {
   width: 111px;
   min-height: 148px;
 }
@@ -125,6 +129,32 @@ input {
   margin: 0px 20px 0px 10px;
 }
 
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.detailsHeader {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.detailsHeader img {
+  margin-right: 10px;
+}
+
+.detailsHeader__text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+a {
+  color: unset;
+  text-decoration: unset;
+}
+
 /* style adjustments for tablet and desktop */
 @media screen and (min-width: 800px) {
   .container {
@@ -132,8 +162,13 @@ input {
   }
 
   .search, 
-  .results {
+  .results,
+  .details {
     height: 100vh;
-    width: 50%;
+    width: 50vw;
+  }
+
+  .book { 
+    width: 85%;
   }
 }

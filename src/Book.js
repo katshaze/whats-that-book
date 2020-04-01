@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { navigate } from "@reach/router";
 
 const Book = ({ name, author, image, bookId }) => {
   let hero = "http://placecorgi.com/300/300";
@@ -8,15 +9,38 @@ const Book = ({ name, author, image, bookId }) => {
   }
 
   async function requestBookDetails() {
-      console.log(`book id is ${bookId}`);
-      
-    let response = await axios.post('http://localhost:3000/book/details', {
+    console.log(`book id is ${bookId}`);
+
+    let response = await axios.post("http://localhost:3000/book/details", {
       bookId
     });
     console.log(response);
     response = response.data;
     console.log(response);
-    
+    const {
+      title,
+      small_image_url,
+      publication_year,
+      description,
+      average_rating,
+      ratings_count,
+      url,
+      publisher
+    } = response;
+
+    navigate(`/details/${bookId}`, {
+      state: {
+        title,
+        small_image_url,
+        publication_year,
+        description,
+        average_rating,
+        ratings_count,
+        url,
+        publisher,
+        author
+      }
+    });
   }
 
   return (

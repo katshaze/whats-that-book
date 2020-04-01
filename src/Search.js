@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Router, navigate } from "@reach/router";
+
 import Results from "./Results";
+import Details from "./Details";
 
 const Search = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -12,6 +15,7 @@ const Search = () => {
     });
     response = response.data[0].work;
     setSearchResults(response || []);
+    navigate("/");
   }
 
   return (
@@ -34,7 +38,10 @@ const Search = () => {
           </form>
         </div>
       </div>
-      <Results searchResults={searchResults} />
+      <Router>
+        <Results searchResults={searchResults} path="/" />
+        <Details path="details/:id" />
+      </Router>
     </div>
   );
 };
