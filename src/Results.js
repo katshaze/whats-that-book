@@ -2,16 +2,6 @@ import React from "react";
 import Book from "./Book";
 
 const Results = ({ searchResults }) => {
-  if (searchResults) {
-    console.log(searchResults.length);
-    console.log(searchResults);
-
-    if (searchResults[0]) {
-      console.log(searchResults[0].best_book[0].image_url[0]);
-      console.log(searchResults[0].best_book[0].id[0]._);
-    }
-  }
-
   return (
     <div className="results">
       {searchResults.length === 0 ? (

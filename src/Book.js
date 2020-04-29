@@ -9,14 +9,10 @@ const Book = ({ name, author, image, bookId }) => {
   }
 
   async function requestBookDetails() {
-    console.log(`book id is ${bookId}`);
-
     let response = await axios.post("http://localhost:3000/book/details", {
       bookId
     });
-    console.log(response);
     response = response.data;
-    console.log(response);
     const {
       title,
       small_image_url,
