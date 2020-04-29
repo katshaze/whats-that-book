@@ -1,5 +1,5 @@
 {
-  "name": "whats-that-book-whos-that-writer",
+  "name": "whats-that-book",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/katshaze/whats-that-book-whos-that-writer.git"
+    "url": "git+https://github.com/katshaze/whats-that-book.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/katshaze/whats-that-book-whos-that-writer/issues"
+    "url": "https://github.com/katshaze/whats-that-book/issues"
   },
-  "homepage": "https://github.com/katshaze/whats-that-book-whos-that-writer#readme",
+  "homepage": "https://github.com/katshaze/whats-that-book#readme",
   "devDependencies": {
     "babel-eslint": "^10.0.3",
     "eslint": "^6.8.0",
