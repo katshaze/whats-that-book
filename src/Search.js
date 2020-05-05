@@ -10,9 +10,9 @@ const Search = () => {
 
   async function requestSearch() {
     let response = await axios.post(`http://localhost:3000/book`, {
-      book
+      book,
     });
-    
+
     response = response.data[0].work;
     setSearchResults(response || []);
     navigate("/");
@@ -20,24 +20,21 @@ const Search = () => {
 
   return (
     <div className="container">
-      <div className="search">
-        <h2>What's that book?</h2>
-        <div className="searchBox">
-          <form
-            onSubmit={e => {
-              e.preventDefault();
-              requestSearch();
-            }}
-          >
-            <input
-              type="text"
-              value={book}
-              onChange={e => updateBook(e.target.value)}
-            />
-            <button className={"button button--search"}>Search</button>
-          </form>
-        </div>
-      </div>
+      <form
+        className="search"
+        onSubmit={(e) => {
+          e.preventDefault();
+          requestSearch();
+        }}
+      >
+        <h2 className="search--heading">What's that book?</h2>
+        <input className="search--input"
+          type="text"
+          value={book}
+          onChange={(e) => updateBook(e.target.value)}
+        />
+        <button className={"button search--button"}>Search</button>
+      </form>
       <Router>
         <Results searchResults={searchResults} path="/" />
         <Details path="details/:id" />
