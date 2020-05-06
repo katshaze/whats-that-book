@@ -1,32 +1,29 @@
 import React from "react";
 
-const Details = props => {
+const Details = (props) => {
   const {
     title,
     author,
-    small_image_url,
-    publication_year,
+    image_url,
     description,
     average_rating,
     ratings_count,
     url,
-    publisher
   } = props.location.state;
 
   return (
     <div className="details">
-      <h1>
-        <a href={url}>{title}</a>
-      </h1>
-      <h2>By {author}</h2>
-
       <div className="detailsHeader">
-        <img src={small_image_url} alt={title} href={url} />
+        <div className="imageContainer">
+        <img src={image_url} alt={title} href={url} />
+        </div>
         <div className="detailsHeader__text">
-          <p>{publication_year}</p>
-          <p>{publisher}</p>
-          <p>
-            Rated {average_rating} (out of {ratings_count} reviews)
+          <h2>
+            <a href={url}>{title}</a>
+          </h2>
+          <h4>by {author}</h4>
+          <p className="ratingInfo">
+            Rated <span className="rating">{average_rating}</span> (out of {ratings_count} reviews)
           </p>
         </div>
       </div>
@@ -34,6 +31,7 @@ const Details = props => {
         className="detailsDescription"
         dangerouslySetInnerHTML={{ __html: description }}
       ></div>
+      <div className="goodreads"><a href={url}>View on Goodreads</a></div>
     </div>
   );
 };

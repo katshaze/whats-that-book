@@ -10,56 +10,69 @@ const Book = ({ name, author, image, bookId }) => {
 
   async function requestBookDetails() {
     let response = await axios.post("http://localhost:3000/book/details", {
-      bookId
+      bookId,
     });
     response = response.data;
+    console.log(response);
+
     const {
       title,
-      small_image_url,
+      image_url,
       publication_year,
       description,
       average_rating,
       ratings_count,
       url,
-      publisher
+      publisher,
     } = response;
 
     navigate(`/details/${bookId}`, {
       state: {
         title,
-        small_image_url,
+        image_url,
         publication_year,
         description,
         average_rating,
         ratings_count,
         url,
         publisher,
-        author
-      }
+        author,
+      },
     });
   }
 
   return (
     <div className="book">
-      <div className="image-container">
-        <img src={hero} alt={name} />
+      <div className="imageContainer">
+        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
+        <img
+          src={hero}
+          alt={name}
+          onClick={(e) => {
+            e.preventDefault();
+            requestBookDetails();
+          }}
+          onKeyPress={(e) => {
+            e.preventDefault();
+            requestBookDetails();
+          }}
+        />
       </div>
       <div className="info">
-        <h4>
-          <button
-            onClick={e => {
-              e.preventDefault();
-              requestBookDetails();
-            }}
-            onKeyPress={e => {
-              e.preventDefault();
-              requestBookDetails();
-            }}
-          >
-            {name}
-          </button>
+        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
+        <h4
+          onClick={(e) => {
+            e.preventDefault();
+            requestBookDetails();
+          }}
+          onKeyPress={(e) => {
+            e.preventDefault();
+            requestBookDetails();
+          }}
+        >
+          {name}
         </h4>
-        <h5>{author}</h5>
+        <p>{author}</p>
       </div>
     </div>
   );
