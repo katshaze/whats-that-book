@@ -5,10 +5,12 @@ import Results from "./Results";
 import Details from "./Details";
 
 const Search = () => {
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState(['loading']);
+  const [initialPageLoad, setInitialPageLoad] = useState(true);
   const [book, updateBook] = useState("Kafka on the Shore");
 
   async function requestSearch() {
+    setInitialPageLoad(false);
     let response = await axios.post(`http://localhost:3000/book`, {
       book,
     });
@@ -21,7 +23,7 @@ const Search = () => {
   return (
     <div className="container">
       <form
-        className="search"
+        className={`search ${initialPageLoad && 'search--initial'}`}
         onSubmit={(e) => {
           e.preventDefault();
           requestSearch();
@@ -36,7 +38,7 @@ const Search = () => {
         <button className={"button search--button"}>Search</button>
       </form>
       <Router>
-        <Results searchResults={searchResults} path="/" />
+        <Results initialPageLoad={initialPageLoad} searchResults={searchResults} path="/" />
         <Details path="details/:id" />
       </Router>
     </div>
