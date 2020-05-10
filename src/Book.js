@@ -9,11 +9,10 @@ const Book = ({ name, author, image, bookId }) => {
   }
 
   async function requestBookDetails() {
-    let response = await axios.post("http://localhost:3000/book/details", {
+    let response = await axios.post(`${process.env.API_URL}/book/details`, {
       bookId,
     });
     response = response.data;
-    console.log(response);
 
     const {
       title,

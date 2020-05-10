@@ -11,7 +11,8 @@ const Search = () => {
 
   async function requestSearch() {
     setInitialPageLoad(false);
-    let response = await axios.post(`http://localhost:3000/book`, {
+    
+    let response = await axios.post(`${process.env.API_URL}/book`, {
       book,
     });
 
