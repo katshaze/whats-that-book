@@ -16,7 +16,10 @@ const Search = () => {
       book,
     });
 
-    response = response.data[0].work;
+    if (response) {
+      response = response.data[0].work;
+    }
+    
     setSearchResults(response || []);
     navigate("/");
   }
