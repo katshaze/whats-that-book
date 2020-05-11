@@ -165,6 +165,7 @@ input {
 
 .detailsHeader {
   display: flex;
+  flex-shrink: 0;
   justify-content: flex-start;
   margin: 10px;
   margin-top: 36px;
