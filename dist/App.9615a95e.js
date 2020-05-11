@@ -104,4 +104,4 @@ module.exports=require("./lib/axios");
 },{"react":"n8MK","axios":"dZBD","@reach/router":"VJZj","./Results":"tKTj","./Details":"XGSj"}],"lY9v":[function(require,module,exports) {
 "use strict";var e=u(require("react")),t=u(require("react-dom")),r=require("@reach/router"),a=u(require("./Search"));function u(e){return e&&e.__esModule?e:{default:e}}const l=()=>((0,r.navigate)("/"),e.default.createElement("div",{className:"app"},e.default.createElement(a.default,null)));t.default.render(e.default.createElement(l,null),document.getElementById("root"));
 },{"react":"n8MK","react-dom":"NKHc","@reach/router":"VJZj","./Search":"FoRF"}]},{},["lY9v"], null)
-//# sourceMappingURL=/whats-that-book/App.9615a95e.js.map
+//# sourceMappingURL=App.9615a95e.js.map
