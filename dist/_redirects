@@ -1,2 +1,2 @@
 /details /index.html 200
-/details/* /index.html 200
+/details/:id /index.html 200
