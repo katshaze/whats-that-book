@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Router, navigate } from "@reach/router";
+import { Link, Router, navigate } from "@reach/router";
 import Results from "./Results";
 import Details from "./Details";
 
@@ -33,7 +33,7 @@ const Search = () => {
           requestSearch();
         }}
       >
-        <h2 className="search--heading">What's that book?</h2>
+        <Link to="/"><h2 className="search--heading">What's that book?</h2></Link>
         <input className="search--input"
           type="text"
           value={book}
