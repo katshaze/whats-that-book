@@ -1,2 +1,2 @@
-/details /index.html 200
-/details/:id /index.html 200
+/details https://whats-that-book.netlify.app/ 200
+/details/:id https://whats-that-book.netlify.app/ 200
